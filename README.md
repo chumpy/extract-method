@@ -3,4 +3,4 @@
 Extracts selected text to a ruby method.  The method is copied to the clipboard
 to be pasted.
 
-![A screenshot of your spankin' package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+![](https://raw.github.com/chumpy/extract-method/master/media/extract-method.gif)
