@@ -10,9 +10,9 @@ class ExtractMethodView extends View
           @span "Extract selected text to method"
         @div class: "panel-body padded", =>
           @div outlet: 'signupForm', =>
-            @subview 'methodNameEditor', new EditorView(mini:true, placeholderText: 'Method name')
+            @subview 'methodNameEditor', new EditorView(mini:true, placeholderText: 'Enter a method name')
             @div class: 'pull-right', =>
-              @button outlet: 'extractButton', class: 'btn btn-primary', "Extract It"
+              @button outlet: 'extractButton', class: 'btn btn-primary', "Extract method to clipboard"
 
   initialize: (serializeState) ->
     @handleEvents()
@@ -41,6 +41,7 @@ class ExtractMethodView extends View
     @methodBody = activeEditor.getSelectedText()
     activeEditor.insertText(@methodNameEditor.getText())
     Clipboard.writeText(@buildRubyMethod(@methodBody))
+    @destroy()
 
   buildRubyMethod: (methodBody)->
     "def #{@methodNameEditor.getText()}\n  #{methodBody}\nend"
