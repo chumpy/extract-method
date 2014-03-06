@@ -39,4 +39,9 @@ class ExtractMethodView extends View
 
   extractMethod: ->
     activeEditor = atom.workspace.getActiveEditor()
-    @methodBody = activeEditor.cutSelectedText()
+    @methodBody = activeEditor.getSelectedText()
+    activeEditor.delete()
+    Clipboard.writeText(@buildRubyMethod(@methodBody))
+
+  buildRubyMethod: (methodBody)->
+    "def #{@methodNameEditor.getText()}\n  #{methodBody}\nend"
