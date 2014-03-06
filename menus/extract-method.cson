@@ -1,0 +1,16 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'Enable extract-method': 'extract-method:toggle'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'extract-method'
+      'submenu': [
+        { 'label': 'Toggle', 'command': 'extract-method:toggle' }
+      ]
+    ]
+  }
+]
