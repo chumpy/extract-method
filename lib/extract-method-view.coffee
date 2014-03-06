@@ -31,7 +31,6 @@ class ExtractMethodView extends View
     @detach()
 
   toggle: ->
-    console.log "ExtractMethodView was toggled!"
     if @hasParent()
       @detach()
     else
@@ -40,7 +39,7 @@ class ExtractMethodView extends View
   extractMethod: ->
     activeEditor = atom.workspace.getActiveEditor()
     @methodBody = activeEditor.getSelectedText()
-    activeEditor.delete()
+    activeEditor.insertText(@methodNameEditor.getText())
     Clipboard.writeText(@buildRubyMethod(@methodBody))
 
   buildRubyMethod: (methodBody)->
