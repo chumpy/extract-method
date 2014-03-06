@@ -44,4 +44,4 @@ class ExtractMethodView extends View
     @destroy()
 
   buildRubyMethod: (methodBody)->
-    "def #{@methodNameEditor.getText()}\n  #{methodBody}\nend"
+    "def #{@methodNameEditor.getText()}\n    #{methodBody}\n  end"
